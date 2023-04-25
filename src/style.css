@@ -126,8 +126,7 @@ input[type="submit"] {
 .col-2 {
   text-align: center;
   border: 1px solid lightgray;
-  padding: 4px;
-  padding: 12px 0px;
+  padding: 10px 0px 0 0;
   margin: 5px 5px;
   text-align: center;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -165,7 +164,9 @@ input[type="submit"] {
 .smug-icon {
   color: darkslategray;
 }
-
+.icon {
+  width: 40px;
+}
 .opecsourceLink {
   position: relative;
   font-size: 14px;

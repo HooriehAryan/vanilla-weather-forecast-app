@@ -36,10 +36,32 @@ function formatDate(timestamp) {
   //--result--
   return `${day}, ${today} ${month} ${hours}:${minutes}`;
 }
+//------------------------forecast--------------------------
+function displayForecat() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <p>${day}</p>
+      <p>
+         <img class="icon" src="http://openweathermap.org/img/wn/50d@2x.png" alt="" >
+      </p>
+          <p>
+        <span class="weather-forecas-temp-max">18</span>°/
+        <span class="weather-forecas-temp-min">19</span>°
+      </p>
+    </div>
+  `;
+  });
 
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 // ---------------display current location weather------------------
 function displayCurrentWeather(response) {
-  // console.log(response);
   document.querySelector("#city-title").innerHTML = response.data.name;
 
   celsiusTemp = response.data.main.temp;
@@ -159,6 +181,8 @@ let celsiusTemp = null;
 let feelsLikeTemp = null;
 let maxTemp = null;
 let minTemp = null;
+
+displayForecat();
 
 //---show default city values--
 searchCity("San Diego");
