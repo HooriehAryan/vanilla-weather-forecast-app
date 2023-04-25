@@ -262,9 +262,7 @@ let lat = 0;
 let long = 0;
 //---show default city values--
 searchCity(city);
-window.onload = function () {
-  // getForecast(coordinates);
-};
+
 //---click search button--
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", cityTitle);
