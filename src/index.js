@@ -36,8 +36,9 @@ function formatDate(timestamp) {
   //--result--
   return `${day}, ${today} ${month} ${hours}:${minutes}`;
 }
-//------------------------forecast--------------------------
-function displayForecat() {
+//-------------------- display forecast--------------------------
+function displayForecast(response) {
+  console.log(response);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat"];
@@ -60,8 +61,19 @@ function displayForecat() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+//----------------get coodinates for forecast weather-------------------
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let key = "cff65853d7c461490797b173c0cc1233";
+  let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&list.dt=06:00:00UTC"&units=metric`;
+  // let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
+  console.log(url);
+  axios.get(url).then(displayForecast);
+}
+
 // ---------------display current location weather------------------
 function displayCurrentWeather(response) {
+  console.log(response);
   document.querySelector("#city-title").innerHTML = response.data.name;
 
   celsiusTemp = response.data.main.temp;
@@ -90,7 +102,7 @@ function displayCurrentWeather(response) {
   );
 
   //--calculate data&time--
-  //convert timestamp to ms
+  //-convert timestamp to ms-
 
   document.querySelector("#date-time").innerHTML = formatDate(
     response.data.dt * 1000
@@ -107,7 +119,7 @@ function displayCurrentWeather(response) {
 
   document.querySelector("#search-input").value = "";
 
-  console.log(response);
+  getForecast(response.data.coord);
 }
 
 //----search current location with latitude and longitude-------
@@ -181,8 +193,6 @@ let celsiusTemp = null;
 let feelsLikeTemp = null;
 let maxTemp = null;
 let minTemp = null;
-
-displayForecat();
 
 //---show default city values--
 searchCity("San Diego");
