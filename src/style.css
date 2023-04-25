@@ -1,7 +1,15 @@
 * {
   box-sizing: border-box;
 }
-
+body {
+  background: radial-gradient(
+    circle at 10% 50%,
+    rgb(209, 231, 235) 7.4%,
+    rgb(238, 219, 199) 51.4%,
+    rgb(255, 159, 122) 82.6%,
+    rgb(255, 109, 58) 100.2%
+  );
+}
 .searchBox {
   position: relative;
   top: 10px;
@@ -17,7 +25,7 @@ input[type="submit"] {
   box-shadow: none !important;
 }
 .form-control:focus {
-  border-color: #faf1e7;
+  border-color: #ffddb4;
   box-shadow: 0 0 0 0.2rem rgb(248, 226, 199, 0.25);
 }
 .searchButton {
@@ -97,7 +105,6 @@ input[type="submit"] {
   top: -32px;
   margin: 20px;
   position: relative;
-  /* background-color: rgb(248, 226, 199); */
   background-color: rgb(255, 221, 180);
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
@@ -109,7 +116,7 @@ input[type="submit"] {
   margin: 6px 6px;
   width: 120px;
   position: fixed;
-  top: 58px;
+  top: 62px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   background-color: rgb(250, 241, 231);
@@ -124,14 +131,6 @@ input[type="submit"] {
   padding: 0 130px 0 10px;
 }
 
-/* .row {
-  font-size: 16px;
-  text-align: center;
-  position: relative;
-  left: 132px;
-  top: -40px;
-  padding: 0 130px 0 10px;
-} */
 .col-2 {
   text-align: center;
   border: 1px solid lightgray;
@@ -143,11 +142,11 @@ input[type="submit"] {
   border-radius: 6px;
 }
 .col-2:hover {
-  background-color: rgb(254, 219, 176);
+  background-color: #fff9f2;
 }
 .weather-app {
   width: 520px;
-  height: 340px;
+  height: 350px;
   border: 2px solid lightgray;
   border-radius: 6px;
   margin: 30px auto;
@@ -160,24 +159,12 @@ input[type="submit"] {
   top: -110px;
   width: 80px;
 }
-/* .sun-icon {
-  color: orange;
-}
-.cloud-icon {
-  color: lightblue;
-}
 
-.bolt-icon {
-  color: gray;
-}
-.smug-icon {
-  color: darkslategray;
-}*/
 .icon {
   width: 40px;
 }
 .opecsourceLink {
-  position: relative;
+  position: fixed;
+  top: 378px;
   font-size: 14px;
-  top: -32px;
 }
